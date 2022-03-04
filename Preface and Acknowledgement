@@ -1,0 +1,8 @@
+#Python scripting allows you to automate tasks in ArcGIS Pro
+#This book gets into the more advanced skills to develop tools to be shared with others.
+#This book corvers:
+#(1) develop Python tools and notebooks to share with others
+#(2) using third-party packages created by the open-source geospatial community
+#(3) apply python to new area, such as web GIS 
+
+#You learn sth best by teaching it to others. 
