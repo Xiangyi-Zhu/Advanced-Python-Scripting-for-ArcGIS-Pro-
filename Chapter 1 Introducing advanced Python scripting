@@ -1,0 +1,19 @@
+#1.2 Python scripting in ArcGIS Pro using ArcPy
+#Python scripting can be used to extend the functionality of ArcGIS Pro and automate workflows.
+#Python is also directly embedded in many tools in ArcGIS Pro. 
+#e.g. (1) Python is one of the standard expression types in field calculations
+#     (2) some geoprocessing tools consists of Python scripts, e.g. Split by Attribute in Analysis tool - extract
+
+#Two main goals in this book
+#(1)
+#develop new geoprocessing tools that expand the functionality of ArcGIS Pro which look like the regular tools
+#that are part of the software (This is accomplished using Python scripts tools and Python toolboxes
+#(2)
+#become familiar with the ArcGIS API for Python to expand the use of Python to working with web GIS
+#(accomplished using notebooks)
+
+#1.3 Python version and ArcGIS
+#Some changes in Python 3 are fundamental, which result in breaking with the backward campatibility 
+#philosophy of Python
+#Officially Python 2 will no longer be maintained past 2020, which means any existing code will continue to 
+#work, but there will be no further improvement to version 2.
