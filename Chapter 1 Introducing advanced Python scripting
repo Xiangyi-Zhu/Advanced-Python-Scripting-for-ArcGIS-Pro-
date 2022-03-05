@@ -17,3 +17,48 @@
 #philosophy of Python
 #Officially Python 2 will no longer be maintained past 2020, which means any existing code will continue to 
 #work, but there will be no further improvement to version 2.
+
+#1.4 ArcGIS API for Python and Jupyter Notebook
+#ArcGIS Pro (Python & ArcPy) is a desktop application, which is mainly designed to munipulate local data.
+#ArcPy has limited functionality to work with web GIS.
+#ArcGIS API (typically written by Jupiter Notebook) for Python is a different Python package from ESRI to work directly with web GIS, 
+#which complements the use of ArcPy for desktop GIS.
+
+#1.6 A note about code in this book
+#ArcGIS Pro 2.5 use ArcGIS API for Python version 1.7.0.
+#ArcGIS API for python can be installed seperately. If installed separately, Python 3.5 is required to use the ArcGIS API for Python.
+
+#1.7 Working with Python editor
+#Python editor, such as IDLE, Spyder, and PyCharm
+
+#1.8 Exploring examples scripts, tools, and notebooks
+#this section uses several examples to illustrate how Python is used to create scripts, tools, and notebooks
+#1.8.1 Example 1: Terrain Tools
+#In this example: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
