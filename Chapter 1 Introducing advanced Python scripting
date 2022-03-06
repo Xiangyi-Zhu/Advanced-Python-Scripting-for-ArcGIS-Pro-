@@ -34,7 +34,11 @@
 #1.8 Exploring examples scripts, tools, and notebooks
 #this section uses several examples to illustrate how Python is used to create scripts, tools, and notebooks
 #1.8.1 Example 1: Terrain Tools
-#In this example: 
+#In this example: a collection of tools, which represent terrain, are in a toolbox. These tools look like the regular geoprocessing tools
+#and were writen in Python.
+#Each tool of this toolbox carried out a series of steps, which can be accomplished by running regular geoprocessing tools and applying 
+#symbology. The purpose of these script tool is to automate separate geoprocessing steps and provides a user-friendly interface.
+
 
 
 
