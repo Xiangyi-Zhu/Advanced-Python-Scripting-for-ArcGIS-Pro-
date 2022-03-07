@@ -38,31 +38,15 @@
 #and were writen in Python.
 #Each tool of this toolbox carried out a series of steps, which can be accomplished by running regular geoprocessing tools and applying 
 #symbology. The purpose of these script tool is to automate separate geoprocessing steps and provides a user-friendly interface.
+#For more info, search Terrain Tools Sample at www.arcgis.com
 
+#1.8.2 Example 2: Random Sample
+#This tol provides functionality not available in ArcGIS pro. 
+#some online resourses at http://stackexchange.com and ESRI Support http://support.esri.com
 
+#1.8.3 3D Fences toolbox
+#For more info, search 3D Fences toolbox at www.arcgis.com
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#1.8.4 Notebook for wildfire analysis
+#This example uses ArcGIS API for Python to work with web GIS. 
+#Search Thomas Fire under the sample notebooks at https://developers.arcgis.com/python/sample-notebooks 
