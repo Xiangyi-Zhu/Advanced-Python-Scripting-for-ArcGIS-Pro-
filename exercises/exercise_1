@@ -1,2 +1,4 @@
 #Exercise 1
 #search terrain tools sample at https://www.arcgis.com/
+#It is not required to write the script as a function, but writing it that way faciliates being able to reuse the code. 
+#
