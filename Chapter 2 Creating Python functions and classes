@@ -38,6 +38,8 @@ print(random_number)
 
 #os module is one of the most widely used modules, which includes several functions 
 #related to the operating system
+import os
+os.listdir() #returns a list containing the names of the entries  
 #os.mkdir() function creates a new folder in the current working directory, as follow
 import os
 os.mkdir('foldername')
@@ -56,8 +58,16 @@ print(arcpy.Exists('G:/Desktop/a.shp'))
 #Even though arcpy is treated as a package, it can still use the <module>.<function>(<arguments>)
 
 #data access module in arcpy (arcpy.da), which is used to describe data, perform editing tasks, 
-#follow database workflow)
+#follow database workflows)
+#da.Describe() function determines the type of dataset, as well as several properties of the dataset
+#the folowing code determines the geometry shape type of a shapefile
+import arcpy
+desc = arcpy.da.Describe('C:/Data/streams.shp')
+print(desc['shapeType'])
 
+#The general syntax for using a function of an ArcPy module is:
+#arcpy.<module>.<function>(<argument>)
+#Describe() is a function of the arcpy.da module
 
 
 
