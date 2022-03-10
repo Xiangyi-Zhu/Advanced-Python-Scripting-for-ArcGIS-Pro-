@@ -1,1 +1,69 @@
-# 2.1
+# 2.1 Intro
+#Custom functions can be called from elsewhere in the same script or from another script.
+#Functions are organized into modules, and modules can be organized into a Python package. 
+#e.g. ArcPy is a collection of modules organized into a package. 
+#Class can help us easier to group together variables and functions.
+
+#2.2 Functions and modules
+#Functions are blocks of code that perform a specific task.
+#Python has lots of built-in functions, such as help(), int(), print(), and str().
+
+#Most functions require one or more arguement (input for functions)
+#The general syntax of a function is:
+#<function>(<arguments>)
+name = 'Paul'
+print(name)
+#Output: Paul
+#<variable> = <value>
+#<fuction>(<variable>)
+#Output: <value>
+
+#Can check built-in functions in Python at: https://docs.python.org/3/library/functions.html
+
+#Additional functionality from other modules can be imported to extend its capatibilities. 
+#Typically, a module consists of several specialized functions. 
+#The general syntax for the import statement is:
+#import <module>
+#Once you import a module in a script, all functions in that module are available to use in that script.
+
+#The following code generates a random number from 1 to 99 using 
+#the randrange() function of the random module
+import random
+random_number = random.randrange(1, 100)
+print(random_number)
+#import <module>
+#<variable> = <module>.<function>
+#<fuction>(<variable>)
+#Output: <value>
+
+#os module is one of the most widely used modules, which includes several functions 
+#related to the operating system
+#os.mkdir() function creates a new folder in the current working directory, as follow
+import os
+os.mkdir('foldername')
+
+#The general syntax to use a function from a module:
+#import <module>
+<mudule>.<function>(<arguments>)
+
+#ArcPy is referred to as a package because it consists of serveral modules, functions, and classes.
+import arcpy
+arcpy.Exists() #determines whether a dataset exists and returns a Boolean value of True or False
+
+import arcpy
+print(arcpy.Exists('G:/Desktop/a.shp'))
+#Output: False
+#Even though arcpy is treated as a package, it can still use the <module>.<function>(<arguments>)
+
+#data access module in arcpy (arcpy.da), which is used to describe data, perform editing tasks, 
+#follow database workflow)
+
+
+
+
+
+
+
+
+
+
