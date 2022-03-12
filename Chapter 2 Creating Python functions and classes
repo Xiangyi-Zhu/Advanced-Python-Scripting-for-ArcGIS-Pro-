@@ -53,7 +53,7 @@ import arcpy
 arcpy.Exists() #determines whether a dataset exists and returns a Boolean value of True or False
 
 import arcpy
-print(arcpy.Exists('G:/Desktop/a.shp'))
+print(arcpy.Exists('G:/Desktop/a.shp')) #return True / False, you need to print it out
 #Output: False
 #Even though arcpy is treated as a package, it can still use the <module>.<function>(<arguments>)
 
@@ -65,9 +65,62 @@ import arcpy
 desc = arcpy.da.Describe('C:/Data/streams.shp')
 print(desc['shapeType'])
 
+import arcpy
+print(arcpy.da.Describe('G:/Desktop/ke_forests/ke_forests.shp')['shapeType'])
+
 #The general syntax for using a function of an ArcPy module is:
 #arcpy.<module>.<function>(<argument>)
 #Describe() is a function of the arcpy.da module
+
+#2.3 Creating functions
+#Python functions are defined using the def keyword
+#The syntax of the def statement is:
+#def <functionname>(<argument>):
+def printmessage():
+    print('hello world')  
+printmessage()
+#"When the script runs, the line of code starting with def and the block of code that follows do not
+#do anything, in other words, the function definition part is not executed.
+#When the function is called (third line), it is executed.
+
+#Create a list of the names of all the fields in a table or feature class
+#There is no function in the ArcPy does that, ListFields() function allows you to create 
+#a list of the fields in a table, you can use for loop to iterate over items in list and 
+#get the names of each field.
+import arcpy
+arcpy.env.workspace = 'G:/Desktop/ke_forests'
+fields = arcpy.ListFields('ke_forests.shp')#fields here is a list of objects
+#could check if parameter here could be .csv file later
+namelist = []
+for field in fields:
+    namelist.append(field.name)
+
+print(namelist)
+
+#Output: ['FID', 'Shape', 'FRID', 'FOREST']
+
+#change the above code to a custom function
+#A function can use more than one argument, and arguments can be made optional.
+#The lack of hard coding is typical for custom functions because you want a function to be reusable 
+#in other scripts
+#hard-coded value of feature class is replaced by the argument of the function, as follow:
+import arcpy
+arcpy.env.workspace = 'G:/Desktop/ke_forests'
+
+def listfieldnames(table):
+    fields = arcpy.ListFields(table)
+    namelist = []
+    for field in fields:
+        namelist.append(field.name)
+    return namelist
+
+fieldnames = listfieldnames('ke_forests.shp')
+print(fieldnames)
+
+#If the function is called before the function definition, the following error is returned:
+#NameError: name 'listfieldnames' is not defined
+
+
 
 
 
