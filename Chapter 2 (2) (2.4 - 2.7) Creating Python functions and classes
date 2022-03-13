@@ -1,1 +1,48 @@
 #2.4 Calling functions from other scripts
+#helloworld.py script
+def printmessage():
+    print('Hello world')
+#print.py script
+import helloworld #look for a file named helloworld.py
+helloworld.printmessage()
+
+#Where Python looks for module?
+#The first place Python looks for helloworld module is the current folder in which the print.py script 
+#is located. 
+#The current folder can be obtained using the following code:
+import sys
+print(sys.path[0]) #sys.path() is a list of system path, 
+
+#current folder also can be obtained using the os module:
+import os
+print(os.getcwd())
+
+#print a complete list of paths:
+import sys
+for path in sys.path: #iteration makes the printout easier to read
+	print(path)
+#The first element of the list is the path of the current scripts
+#The rest of the paths depend on how ArcGIS is installed on the environment being used.
+
+#What if the module (script) you wanna import is in a different folder?
+#(not in the current folder of the script or in any of the folder in sys.path)
+#Option 1: Append the path using code
+#Temporarily add a path to your script
+import sys
+sys.path.append('G:/thisistestfolder')
+import helloworld
+helloworld.printmessage()
+#The sys.path.append() statement is a temporary solution so a script can call a function in another script
+
+#Option 2: Use a path configuration(.pth) file
+#This .pth file can be created using a basic text editor. 
+#For more info, can check the textbook
+#But for me, I prefer the option 1.
+
+#Example used in the previous section: calculate the sinuosity:
+#rivers.py
+
+
+
+
+
