@@ -120,6 +120,45 @@ print(fieldnames)
 #If the function is called before the function definition, the following error is returned:
 #NameError: name 'listfieldnames' is not defined
 
+#Calculate the sinuosity index for each polyline feature (representing a river segment)
+#The calculation can be accomplished by using properties of a Polyline objet (length, firstPoint, lastPoint)
+#(1)
+import arcpy
+import math
+arcpy.env.workspace = 'C:/Data/Hydro.gdb'
+fc = 'streams'
+with arcpy.da.SearchCursor (fc, ['OID@', 'SHAPE@']) as cursor:
+    for row in cursor:
+        oid = row[0]
+        shape = row[1]
+        channel = shape.length
+        deltaX = shape.firstPoint.Xshape.lastPoint.X
+        deltaY = shape.firstPoint.Yshape.lastPoint.Y
+        valley = math.sqrt(pow(deltaX, 2) + pow(deltaY, 2))
+        si = round(channel / valley, 3)
+        print(f'Stream ID {oid} has a sinuosity index of {si}')
+
+#(2) converted into custom function
+import arcpy
+import math
+arcpy.env.workspace = 'C:/Data/Hydro.gdb'
+fc = 'streams'
+
+def sinuosity(shape):
+    channel = shape.length
+    deltaX = shape.firstPoint.Xshape.lastPoint.X
+    deltaY = shape.firstPoint.Yshape.lastPoint.Y
+    valley = math.sqrt(pow(deltaX, 2) + pow(deltaY, 2))
+    return channel / valley
+
+with arcpy.da.SearchCursor (fc, ['OID@', 'SHAPE@']) as cursor:
+    for row in cursor:
+        oid = row[0]
+        shape = row[1]
+        si = round(sinuosity(shape), 3)
+        print(f'Stream ID {oid} has a sinuosity index of {si}')
+        #si = sinuosity(shape)
+        #print(f'Stream ID {oid} has a sinuosity index of {si:.3f}')
 
 
 
