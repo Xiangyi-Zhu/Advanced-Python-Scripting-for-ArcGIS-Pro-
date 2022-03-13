@@ -160,12 +160,3 @@ with arcpy.da.SearchCursor (fc, ['OID@', 'SHAPE@']) as cursor:
         #si = sinuosity(shape)
         #print(f'Stream ID {oid} has a sinuosity index of {si:.3f}')
 
-
-
-
-
-
-
-
-
-
