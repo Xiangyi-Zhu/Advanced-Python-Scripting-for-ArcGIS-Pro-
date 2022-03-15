@@ -58,10 +58,28 @@ with arcpy.da.SearchCursor (fc, ['OID@', 'SHAPE@']) as cursor:
     for row in cursor:
         oid = row[0]
         shape = row[1]
-        si = round(sinuosity(shape), 3)
+        si = round(rivers.sinuosity(shape), 3)
         print(f'Stream ID {oid} has a sinuosity index of {si}')
+#When calling the custom function, the module must be included eg:rivers.sinuosity()
 
 #2.5 Organizing code into modules
+#All Python files are, in fact, modules.
+#hello.py script
+def printmessage():
+    print('Hello world')
+printmessage()
+#foo.py script
+import hello
+#The output of foo.py is: Hello world
+#How to distinguish between running the script by itself and importing it as a module into another script?
 
-
+#This is where variable __name__comes in
+#For any script, this variable has the value of "__main__"
+#For an imported module, the variable is set to the name of the module
+def printmessage():
+    print('Hello world')
+if __name__ == "__main__":
+    printmessage()
+#In this case, the test of code will run only if the script is run by itself.
+#If you import the module into another script, no code will run until you call the function. 
 
