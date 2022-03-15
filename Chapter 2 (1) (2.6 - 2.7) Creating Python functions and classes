@@ -1,1 +1,121 @@
 #2.6 Creating classes
+class Parcel(object):
+    
+    def __init__(self, landuse, value):
+        self.landuse = landuse
+        self.value = value
+
+    def assessment(self):
+        if self.landuse == "SFR":
+            rate = 0.05
+        elif self.landuse == "MFR":
+            rate = 0.04
+        else:
+            rate = 0.02
+        assessment = self.value * rate
+        return assessment
+      
+myparcel = Parcel("SFR", 200000)
+print(myparcel.landuse)
+print(myparcel.value)
+print(type(myparcel)) #<class '__main__.Parcel'>
+#This check confirms that the type of object is Parcel
+#The __main__ portion means that the class definition resides in the current script
+
+print("Land use: ", myparcel.landuse)
+mytax = myparcel.assessment()
+print('Tax:', mytax)
+
+#import class from another script in the same folder
+#ParcelClass.py
+class Parcel(object):
+    
+    def __init__(self, landuse, value):
+        self.landuse = landuse
+        self.value = value
+
+    def assessment(self):
+        if self.landuse == "SFR":
+            rate = 0.05
+        elif self.landuse == "MFR":
+            rate = 0.04
+        else:
+            rate = 0.02
+        assessment = self.value * rate
+        return assessment
+#class.py
+import ParcelClass
+myparcel = ParcelClass.Parcel('SFR', 200000)
+print('Land use: ', myparcel.landuse)
+mytax = myparcel.assessment()
+print(mytax)
+
+#Create River Class
+#rivers.pyimport math
+
+class River(object):
+    
+    def __init__(self,shape):
+        self.shape = shape
+        
+    def sinuosity(self):
+        channel = self.shape.length
+        deltaX = self.shape.firstPoint.X - slef.shape.lastPoint.X
+        deltaY = self.shape.firstPoint.Y - self.shape.lastPoint.Y
+        valley = math.sqrt(pow(deltaX, 2) + pow(deltaY, 2))
+        return channel / valley
+  
+#import River class in another script
+import arcpy
+import rivers
+arcpy.env.worksapce = 'C:/Data/Hydro.gdb'
+fc = 'streams'
+with arcpy.da.SearchCursor(fc, ['OID@','SHAPE@']) as cursor:
+    for row in cursor:
+        oid = row[0]
+        shape = row[1]
+        segment = rivers.River(row[1])
+        si = round(segment.sinuosity(), 3)
+        print(f'Streams ID {oid} has a sinuosity index of {si}')
+
+#2.7 Working with packages
+#script -- module, when have much more modules, you can consider group them into packages.
+#package includes multiple modules that are closely related to each other 
+#module stored in a .py file, a package is a folder with a file called __init__.py in it.
+#This __init__.py file defines general attributes of package. This script does not need to define anything
+#it can be just an empty file, but it must exist
+#If __init__.py does not exist, the directory is just a directory, and not a package, and it can not be imported
+#The __init__.py file also makes it possible to import a package as a module e.g. arcpy
+#In the import arcpy case, you are not referring to a script file called arcpy.py,
+#Instead, you are referring to a folder called arcpy which contains a file called __init__.py.
+#Although, module and package is used interchangable in python community, the difference between 
+#module and package is illustrated clearly in this chapter
+
+#What if I plan to create a package called mytools?
+#First, you must have a folder called mytools (in C:/Myfolder), and inside the folder, has a file called __init__.py
+#If you wanna create two modules (analysis and model) inside, another two scripts called analysis.py and 
+#model.py should also be in this folder, called mytools
+#To use this package
+import sys
+sys.path.append('C:/Myfolder")
+import mytools
+output = mytools.analysis.<function>(<arguments>)
+
+#Site Package (such as numpy)
+#means a locally installed package that is available to all users of that computer
+
+#Reasons arcpy is not installed in Python's Lib\site-packages folder
+#(1) for every new python environment, all packages are copied, and each environment has different packages
+#ArcPy must be part of every environment, it is seperated in Pro\Resources folder
+#(2) ArcPy is proprietary (not open source)
+
+
+
+
+
+
+
+
+
+
+
