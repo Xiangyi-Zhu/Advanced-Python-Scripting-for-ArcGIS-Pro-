@@ -1,0 +1,23 @@
+#3.1 Intro
+#This chapter show how to turn a Python script into a script tool
+#Script tools makes it easier to share scripts with others.
+
+#3.2 Script tools VS Python toolbox
+#3.2.1 Create a tool using script tool
+#The language for this tool is mostly python, but other scripting languages that accept argument can also 
+#be used.
+#Tool properties and parameters are created manually using interface options of the ArcGIS Pro application.
+
+#3.2.2 Create a tool using a Python toolbox
+#The entire tool dialog box is written in Python, and saved as a .pyt file
+#which is recognized as a Python toolbox in ArcGIS Pro.
+#A single Python toolbox can contain multiple tools, all written in the same script file 
+
+#3.3 Why create your own tools?
+#Any model created and saved using ModelBuilder is a tool because it is in a toolbox (.tbx file) 
+#or a geodatabase
+#Python scripts can be run in two ways: 
+#(1) a stand-alone script runs from operating system or from within a Python editor.
+#(2) As a tool within ArcGIS Pro 
+
+#3.4 Steps to creating a script tool
