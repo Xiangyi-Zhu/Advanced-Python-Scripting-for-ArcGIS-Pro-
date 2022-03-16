@@ -21,3 +21,36 @@
 #(2) As a tool within ArcGIS Pro 
 
 #3.4 Steps to creating a script tool
+#(1) create .py file carries out the intended task
+#(2) create a custom toolbox (.tbx file) where the script tool can be stored
+#(3) add a script tool to a custom toolbox
+#(4) configure tool properties and parameters
+#(5) modify the script ao that it can receive the tool parameter
+#create a new custom toolbox on the Project tab of Catalog pane in ArcGIS Pro
+#This new custom toolbox can be created in Toolboxes (New Toolbox (.atbx) / New Legacy Toolbox (.tbx)
+# / New Python Toolbox (.pyt)) or in a folder (New Toolbox (.atbx) / New Legacy Toolbox (.tbx)
+# / New Python Toolbox (.pyt)) or in a geodatabase (Toolbox) (The toolbox inside a geodatabase, like other 
+#geodatabase elements, does not have a file extension.
+
+#There are three toolbox formats that can be created and used in a project:
+#(1) ArcGIS toolbox (.atbx file) is stored on disk. This toolbox format stores tools, scripts, and models. 
+#It provides better cross-release compatibility and persistence, improved performance and scalability, 
+#and less possibility of file corruption due to binary storage, 
+#as the new format is JSON-based with an open specification compared to the legacy toolbox format (.tbx) described below. You can create toolsets, add new model and script tools, change properties, and copy and paste tools from legacy toolboxes into the new toolbox format using the Catalog pane.
+#(2) Legacy toolbox—This toolbox format is stored as a .tbx file on disk or within a database.
+#(3) Python toolbox—This toolbox format is stored as a .pyt file on disk. 
+#All properties of a Python toolbox and its tools are defined using Python code.
+
+# A stand-alone toolbox can be located anywhere on your computer, not only in the same folder in which
+#datasets and other files for a project, also can be in a seperate folder which is used for 
+#storing toolbox only
+
+#To create a script tool, right click a custom toolbox, New -> Script
+#???????? "Write access to the toolbox is needed to add a new script tool. As a result, you cannot
+#add tools to any of the system toolboxes in ArcGIS Pro." I think these words means you cannot add tools 
+#to the Toolbox in Geoprocessing Pane, because there have no writing accessiblity in these tools.
+
+#
+
+
+
