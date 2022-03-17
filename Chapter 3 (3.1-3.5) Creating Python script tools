@@ -62,8 +62,13 @@
 #(1) Including code in the script to receive the parameter values
 #(2) Setting up the parameters in the script tool properties
 
-#The tool parameters are received by the script using the arcpy.GetParameterAsText() and arcpy.GetParameter()
-#
-
-
-
+#The tool parameters are received by the script using the arcpy.GetParameterAsText() (receives
+#parameters as a text string, even if the parameters are different data type) and arcpy.GetParameter() (get
+#parameter consists of multiple values instead of a single value
+#syntax of the GetParameterAsText():
+#<variable> = arcpy.GetParameterAsText(<index>)
+#system argument (sys.argv) is an alternative, which starts at 1 (sys.argv[1] is equivalent to GetParameterAsText(0)
+#?????The limitation of sys.argv is that it accepts a limited number of characters
+#Therefore using GetParameterAsText() and GetParameter() is preferred
+#Data type in Tool Properties make sure that if the input parameters will only be sent to dialog box if they are 
+#the correct data type.
