@@ -50,7 +50,20 @@
 #add tools to any of the system toolboxes in ArcGIS Pro." I think these words means you cannot add tools 
 #to the Toolbox in Geoprocessing Pane, because there have no writing accessiblity in these tools.
 
-#f
+#'Store tool with relative path' is checked by default
+#When this option is checked, relative paths are used instead of absolute paths to reference the location of the
+#script file in relation to the location of the custom toolbox file.
+#Typically, the python script and toolbox are in the same folder, and working with relative paths ensures the python
+#script can still be located if the folder is moved or renamed.
+#If you are going to share the tool with others, make sure the option is checked.
+
+#3.5 Exploring tool parameters
+#creating and exposing parameters requires the following steps
+#(1) Including code in the script to receive the parameter values
+#(2) Setting up the parameters in the script tool properties
+
+#The tool parameters are received by the script using the arcpy.GetParameterAsText() and arcpy.GetParameter()
+#
 
 
 
