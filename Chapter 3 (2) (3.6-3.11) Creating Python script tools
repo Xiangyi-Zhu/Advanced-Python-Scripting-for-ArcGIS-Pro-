@@ -1,0 +1,25 @@
+#3.6 Setting tool parameters
+#Parameter Data Type: 
+#(1)Feature Layer (on the tool dialog box, a user can use a drop-down list to select from the feature 
+#layers in the current map but also can browse to a feature class on disk)
+#(2)Feature Class (sounds similar to Feature Layer, but you can only use the feature classes on 
+#disk and does not allow for the use of feature layers in the current map)
+#(Optional) Multiple values option means you can enter multiple values of the same data type as a single
+#parameter. These values are passed to a script as a list of values.
+#(Optional) Table of vlaues (enter multiple values in a table format, tools like Intersect and Union use this 
+#table of values format, also referred to as a value table.
+#Parameters with multiple values are passed to the script as a string, with the individual element
+#is seperated by ';', split method split the string into list:
+#syntax:
+#import arcpy
+#input = arcpy.GetParamterAsText(0)
+#input_list = input.split(';')
+#Parameters with multiple values can also be handled using arcpy.GetParameter(), in this case, 
+#result is a list of values, and individual values can be obtained using an index or by 
+#iterating over the list.
+#Parameters consist of a table of values, can use GetParameter() to obtain a ValueTable object,
+#the values are stored in a virtual table of rows and columns. ValueTable is an ArcPy class that 
+#is specifically designed for table of values.
+
+#Three choices for Type: Required, Optional, and Derived 
+
