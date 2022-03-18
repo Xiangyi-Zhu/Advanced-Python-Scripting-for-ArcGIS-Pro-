@@ -42,7 +42,13 @@
 
 #Dependency property: The dependency of one parameter on another parameter 
 
-#Default property
+#Default property: allow you to specify the value of the parameter when the dialog box is open
+#Default values are commonly used for Boolean parameters
 
-#Environments property: set default values
+#Environments property: another option to set default values, a drop-down list with env setting
+#is provided
+#When this property is set, the default value for the parameter is obtained from the environments
+#of the geoprocessing framework
+
+#???????Symbology property: 
 #
