@@ -4,6 +4,8 @@
 #layers in the current map but also can browse to a feature class on disk)
 #(2)Feature Class (sounds similar to Feature Layer, but you can only use the feature classes on 
 #disk and does not allow for the use of feature layers in the current map)
+#(3)Long data type ensures that only integer values are entered, tool will not run if test 
+#or decimal numbers are entered.
 #(Optional) Multiple values option means you can enter multiple values of the same data type as a single
 #parameter. These values are passed to a script as a list of values.
 #(Optional) Table of vlaues (enter multiple values in a table format, tools like Intersect and Union use this 
@@ -22,4 +24,25 @@
 #is specifically designed for table of values.
 
 #Three choices for Type: Required, Optional, and Derived 
+#When setting the Type property to Optional, a default value for the parameter is specified 
+#in the tool properties or in the script 
+#Derived parameters are used for output parameters only and do not appear on the tool dialog box
+#??????Derived parameters are used in several cases:
+#(1) when a tool outputs a single value instead of a dataset. Such a single value is often 
+#referred to as a scalar
+#(2) when a tool creates outputs using information from other parameters
+#(3) when a tool modifies an input without creating a new output
+#????Sometimes the only way to ensure that a tool has an output is by using a derived parameter.
+#Examples of tools with derived parameters include the Get Count and Add field tools. 
 
+#Filter property: for long data type: None, Value List, Range (set the range of allowable values)
+#Based on the different kinds of data types, there are various available filter types
+
+#Category property allows you group different parameters into one group
+
+#Dependency property: The dependency of one parameter on another parameter 
+
+#Default property
+
+#Environments property: set default values
+#
