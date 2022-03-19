@@ -50,5 +50,33 @@
 #When this property is set, the default value for the parameter is obtained from the environments
 #of the geoprocessing framework
 
-#???????Symbology property: 
-#
+#???????Symbology property (cannot fully understand this property): 
+#specify path to a layer file
+#This explaination is copied and pasted directly from this book 
+#"The symbology of a layer added in this way follows the regular rules for adding data to a map 
+#in ArcGIS Pro - in other words, there is no customized symbology ??????
+#"Setting the symbology property does not control whether the output ia added to an open map
+#because this option is controlled by Geoprocessing Options.
+
+#Editing tool code to receive parameters
+#You can leave your script open in a Python editor during the testing of the script tool.
+#Because when executing a script tool, the tool calls the associated script, and this call is
+#independent from a Python editor.
+#e.g.
+#inputfc = arcpy.GetParameterAsText(0) #GetParameterAsText() returns the values as a string
+#outputfc = arcpy.GetParameterAsText(1)
+#outcount = arcpy.GetParameter(2) #GetParameter() returns the values as an object 
+#???? I think string is also a object, so I think the didderence illustrated here is not clear
+#enough (GetParameter returns strings, GetParameter returns objects.
+#GetParameterAsText() function can be used for parameters that are not strings, but the value 
+#must be cast to the appropriate type
+#outcount = int(arcpy.GetParameterAsText(2))
+
+
+
+
+
+
+
+
+
