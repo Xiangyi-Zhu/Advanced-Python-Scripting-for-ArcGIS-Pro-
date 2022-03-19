@@ -72,3 +72,54 @@
 #Therefore using GetParameterAsText() and GetParameter() is preferred
 #Data type in Tool Properties make sure that if the input parameters will only be sent to dialog box if they are 
 #the correct data type.
+
+#Author: Paul Zandbergen
+#This script creates a random sample of input features
+#based on a specified count and saves the results
+#as a new feature class
+#import modules.
+import arcpy
+import random
+
+#set inputs and outputs. Inputfc can be a shapefile or geodatabase
+#Outcount cannot exceed the feature count of inputfc
+#The three variables are hard-coded into the script
+#inputfc = "C:/Random/Data.gdb/points" #string
+#outputfc = "C:/Random/Data.gdb/random" #string 
+#outcount = 5 #number
+
+inputfc = arcpy.GetParameterAsText(0)
+outputfc = arcpy.GetParameterAsText(1)
+outcount = arcpy.GetParameter(2)
+
+
+
+#Create a list of all the IDs of the input features
+inlist = []
+with arcpy.da.SearchCursor(inputfc, "OID@") as cursor:
+    for row in cursor:
+        id = row[0]
+        inlist.append(id)
+
+#Create a random sample of IDs from the list of all IDs.
+randomlist = random.sample(inlist, outcount)
+
+#Use the random sample of IDs to create a new feature class.
+desc = arcpy.da.Describe(inputfc)
+fldname = desc["OIDFieldName"] #fldname = 'FID'
+sqlfield = arcpy.AddFieldDelimiters(inputfc, fldname)
+#add field delimiter to a field name to allow for use in SQL expressions
+#returns a delimited field name 
+sqlexp = f'{sqlfield} IN {tuple(randomlist)}' #WHERE clause
+#In SQL, this list must in a pair of parentheses, which is equivalent to a
+#tuple in Python
+#print(sqlexp):
+#For a geodatabase: OBJECT IN (1302,23,4,5,6)
+#For a shapefile: "FID" IN (1,34,56,79,100)
+arcpy.Select_analysis(inputfc, outputfc, sqlexp)
+#Extract features from an input feature class, using a select or SQL expression
+#and stores them in an output feature class.
+#This script does not work for a stand-alone table because Select tool works
+#only on feature classes
+#To work with stand-alone tables, the Select Layer By Attribute tool
+#is used instead
